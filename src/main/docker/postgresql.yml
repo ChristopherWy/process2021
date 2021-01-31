@@ -1,0 +1,12 @@
+version: '2'
+services:
+  process2021-postgresql:
+    image: postgres:12.3
+    # volumes:
+    #     - ~/volumes/jhipster/process2021/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=process2021
+      - POSTGRES_PASSWORD=
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 5432:5432
