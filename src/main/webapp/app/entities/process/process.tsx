@@ -12,6 +12,9 @@ import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 
+import { Box, Typography, Grid, Button as MaterialButton } from '@material-ui/core';
+import MenuItem from "app/shared/layout/menus/menu-item";
+
 export interface IProcessProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export const Process = (props: IProcessProps) => {
@@ -68,12 +71,31 @@ export const Process = (props: IProcessProps) => {
   return (
     <div>
       <h2 id="process-heading">
-        Processes
+        Process Designer
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp; Create new Process
         </Link>
       </h2>
+      <Box px={2} py={2}>
+        <Grid container direction="column"  alignItems="center" justify="center" spacing={1}>
+          <Box pb={2}>
+            <Typography>Drag to add</Typography>
+          </Box>
+          <Grid container direction="column" item>
+            <MaterialButton variant="contained">Button</MaterialButton>
+          </Grid>
+          <Grid container direction="column" item>
+            <MaterialButton variant="contained">Text</MaterialButton>
+          </Grid>
+          <Grid container direction="column" item>
+            <MaterialButton variant="contained">Container</MaterialButton>
+          </Grid>
+          <Grid container direction="column" item>
+            <MaterialButton variant="contained">Card</MaterialButton>
+          </Grid>
+        </Grid>
+      </Box>
       <div className="table-responsive">
         {processList && processList.length > 0 ? (
           <Table responsive>
