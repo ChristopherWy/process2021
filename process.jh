@@ -1,0 +1,8 @@
+entity Process {
+    title String required,
+    code String
+}
+
+filter Process
+paginate Process with pagination
+service all with serviceImpl except Process
